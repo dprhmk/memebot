@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\BotController;
-use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +11,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [BotController::class, 'show']);
-Route::get('/sendmeme', [BotController::class, 'sendMeme']);
+use Illuminate\Support\Facades\Route;
+
+Route::get('/test', function () {
+    $response = \Illuminate\Support\Facades\Http::get('https://meme-api.com/gimme');
+    $data = $response->json();
+    $randomMemeHtml = '<img src="' . $data['url'] . '" alt="' . $data['title'] . '">';
+
+    dd($randomMemeHtml);
+
+});

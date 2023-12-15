@@ -65,12 +65,63 @@ class Handler extends WebhookHandler
             ->send();
     }
 
-    public function coffee_time(): void
+    public function coffee_time1(): void
     {
         $chats = TelegraphChat::query()->get();
 
         foreach($chats as $chat) {
-            $chat->message('Пора на каву :)')->send();
+            $chat
+                ->photo(storage_path('app/public/images/koritsa.jpg'))
+                ->message('Пора на каву :)')
+                ->send();
+        }
+    }
+
+    public function coffee_time2(): void
+    {
+        $chats = TelegraphChat::query()->get();
+
+        foreach($chats as $chat) {
+            $chat
+                ->photo(storage_path('app/public/images/babushka_coffee.jpg'))
+                ->message('Пора на каву :)')
+                ->send();
+        }
+    }
+
+    public function coffee_time3(): void
+    {
+        $chats = TelegraphChat::query()->get();
+
+        foreach($chats as $chat) {
+            $chat
+                ->photo(storage_path('app/public/images/klichko.jpeg'))
+                ->message('Пора на каву :)')
+                ->send();
+        }
+    }
+
+    public function coffee_time4(): void
+    {
+        $chats = TelegraphChat::query()->get();
+
+        foreach($chats as $chat) {
+            $chat
+                ->photo(storage_path('app/public/images/kohve.jpeg'))
+                ->message('Пора на каву :)')
+                ->send();
+        }
+    }
+
+    public function go_work(): void
+    {
+        $chats = TelegraphChat::query()->get();
+
+        foreach($chats as $chat) {
+            $chat
+                ->photo(storage_path('app/public/images/do-pratsi.jpg'))
+                ->message('До ПРАЦІ!')
+                ->send();
         }
     }
 }
